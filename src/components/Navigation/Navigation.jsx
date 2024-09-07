@@ -1,17 +1,28 @@
 import { NavLink } from "react-router-dom";
-import css from "./Navigation.module.css"; // Приклад, якщо використовуєш CSS модулі
+import css from "./Navigation.module.css";
 export default function Navigation() {
   return (
     <nav className={css.nav}>
-      {" "}
-      {/* Додай клас, якщо потрібно */}
-      <NavLink to="/" className={css.link}>
-        Home
-      </NavLink>{" "}
-      {/* Вкажи правильні шляхи */}
-      <NavLink to="/catalog" className={css.link}>
-        Catalog
-      </NavLink>
+      <span className={css.logo}>Travel</span>
+      <span className={css.logoTrucks}>Trucks</span>
+      <div className={css.links}>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? `${css.link} ${css.active}` : css.link
+          }
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/catalog"
+          className={({ isActive }) =>
+            isActive ? `${css.link} ${css.active}` : css.link
+          }
+        >
+          Catalog
+        </NavLink>
+      </div>
     </nav>
   );
 }

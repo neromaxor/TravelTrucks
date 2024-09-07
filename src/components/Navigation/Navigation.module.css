@@ -1,0 +1,38 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  border-bottom: 2px solid #f0f0f0;
+  width: 1440px;
+  height: 72px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #2d3748;
+}
+
+.links {
+  display: flex;
+}
+
+.link {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.link.active {
+  color: #e53e3e;
+}
+
+.logoTrucks {
+  color: #475467;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-left: 1px;
+}

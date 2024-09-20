@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./../pages/Home.jsx";
 import Catalog from "./../pages/Catalog.jsx";
 import AppBar from "./AppBar/AppBar.jsx";
+import css from "./App.module.css";
 
 export default function App() {
   return (
@@ -10,7 +11,6 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
-        {/* Додай інші маршрути, якщо необхідно */}
       </Routes>
     </>
   );

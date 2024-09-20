@@ -1,39 +1,48 @@
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-
-  border-bottom: 2px solid #f0f0f0;
+  position: absolute;
   width: 1440px;
   height: 72px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 696px;
+  /* Auto layout */
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 1.5rem;
-  color: #2d3748;
-}
-
-.links {
-  display: flex;
-  margin-right: 660px;
-}
-
-.link {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #2d3748;
+  color: rgb(16, 24, 40);
+  font-family: Inter;
+  font-size: 20px;
   font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0%;
+  text-align: center;
 }
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 
-.link.active {
-  color: #e53e3e;
+  padding: 24px 64px 24px 64px;
 }
 
 .logoTrucks {
   color: #475467;
-  font-weight: bold;
-  font-size: 1.5rem;
-  margin-left: -501px;
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0%;
+  text-align: center;
+}
+
+.links {
+  padding-left: 450px;
+  color: rgb(216, 67, 67);
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0%;
 }

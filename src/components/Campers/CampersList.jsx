@@ -29,11 +29,14 @@ const CamptrsList = () => {
 
   return (
     <div>
-      <h1>Available Campers</h1>
       <div className="campers-list">
-        {campersList.map((camper) => (
-          <CampersCard key={camper.id} camper={camper} />
-        ))}
+        <ul>
+          {campersList.map((camper) => (
+            <li key={index}>
+              <CampersCard key={camper.id} camper={camper} />
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );

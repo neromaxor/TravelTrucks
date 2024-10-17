@@ -1,5 +1,4 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-
+import { createSlice } from "@reduxjs/toolkit";
 import { fetchCampers } from "./operations";
 
 const campersSlice = createSlice({

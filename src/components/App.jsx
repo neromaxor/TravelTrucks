@@ -3,6 +3,7 @@ import Home from "./../pages/Home.jsx";
 import Catalog from "./../pages/Catalog.jsx";
 import AppBar from "./AppBar/AppBar.jsx";
 import css from "./App.module.css";
+import CampersList from "./Campers/CampersList.jsx";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
+        <Route path="/campers" element={<CampersList />} />
       </Routes>
     </>
   );

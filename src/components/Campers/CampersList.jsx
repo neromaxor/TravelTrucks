@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCampers } from "../redux/operations"; // Використовуємо функцію для отримання кемперів
-import CampersCard from "./CampersCard"; // Імпортуємо компонент картки кемпера
+import { fetchCampers } from "../../redux/operations"; // Використовуємо функцію для отримання кемперів
+import CampersCard from "../CampersCard/CampersCard"; // Імпортуємо компонент картки кемпера
 import {
   selectCampersList,
   selectCampersStatus,
@@ -14,7 +14,7 @@ const CamptrsList = () => {
   const campersList = useSelector(selectCampersList);
   const status = useSelector(selectCampersStatus);
   const error = useSelector(selectCampersError);
-  // Викликаємо fetchCampers при першому завантаженні компонента
+
   useEffect(() => {
     dispatch(fetchCampers());
   }, [dispatch]);
@@ -32,8 +32,8 @@ const CamptrsList = () => {
       <div className="campers-list">
         <ul>
           {campersList.map((camper) => (
-            <li key={index}>
-              <CampersCard key={camper.id} camper={camper} />
+            <li key={camper.id}>
+              <CampersCard camper={camper} />
             </li>
           ))}
         </ul>

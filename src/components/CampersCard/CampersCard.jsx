@@ -1,8 +1,6 @@
 import css from "./CampersCard.module.css";
 import PropTypes from "prop-types";
 
-import css from "./CampersCard.module.css";
-
 export default function CampersCard({ camper }) {
   return (
     <div className={css.container_campers_card}>

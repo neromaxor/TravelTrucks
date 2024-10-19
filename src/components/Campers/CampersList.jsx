@@ -18,7 +18,7 @@ const CamptrsList = () => {
     dispatch(fetchCampers({ page: 1, limit: 4 }));
   }, [dispatch]);
 
-  if (status === "loading") {
+  if (status) {
     return <p>Loading campers...</p>;
   }
 

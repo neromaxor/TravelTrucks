@@ -17,6 +17,7 @@ const campersSlice = createSlice({
       water: true,
     },
     campers: [],
+    total: 0,
     loading: false,
     error: null,
   },
@@ -28,7 +29,8 @@ const campersSlice = createSlice({
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.loading = false;
-        state.campers = [...state.campers, ...action.payload];
+        state.campers = action.payload.items || [];
+        state.total = action.payload.total;
       })
       .addCase(fetchCampers.rejected, (state, action) => {
         state.loading = false;

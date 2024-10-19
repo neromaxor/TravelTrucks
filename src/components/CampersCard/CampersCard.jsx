@@ -5,7 +5,14 @@ export default function CampersCard({ camper }) {
   return (
     <div className={css.container_campers_card}>
       <div className={css.image_container}>
-        <img src={camper.gallery[0].original} alt={camper.name} />
+        <img
+          src={
+            camper.gallery && camper.gallery.length > 0
+              ? camper.gallery[0].original
+              : "default-image.jpg"
+          }
+          alt={camper.name}
+        />
       </div>
       <div className={css.description_container}>
         <h2>{camper.name}</h2>

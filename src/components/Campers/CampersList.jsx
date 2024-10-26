@@ -8,7 +8,7 @@ import {
   selectCampersError,
 } from "../../redux/selector";
 
-const CamptrsList = () => {
+export default function CamptrsList() {
   const dispatch = useDispatch();
   const campersList = useSelector(selectCampersList);
   const status = useSelector(selectCampersStatus);
@@ -43,6 +43,4 @@ const CamptrsList = () => {
       </div>
     </div>
   );
-};
-
-export default CamptrsList;
+}

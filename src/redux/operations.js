@@ -15,6 +15,7 @@ export const fetchCampers = createAsyncThunk(
           limit,
         },
       });
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);

@@ -10,10 +10,7 @@ export const fetchCampers = createAsyncThunk(
   async ({ page = 1, limit = 4 }, thunkApi) => {
     try {
       const response = await api.get("/campers", {
-        params: {
-          page,
-          limit,
-        },
+        params: { page, limit },
       });
       console.log(response.data);
       return response.data;

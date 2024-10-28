@@ -17,11 +17,15 @@ const campersSlice = createSlice({
       water: true,
     },
     campers: [],
-
     loading: false,
     error: null,
+    page: 1, // Додаємо початковий номер сторінки
   },
-  reducers: {},
+  reducers: {
+    setPage: (state, action) => {
+      state.page = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCampers.pending, (state) => {
@@ -38,4 +42,5 @@ const campersSlice = createSlice({
   },
 });
 
+export const { setPage } = campersSlice.actions;
 export default campersSlice.reducer;

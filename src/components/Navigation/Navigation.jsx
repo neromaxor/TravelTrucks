@@ -10,7 +10,9 @@ export default function Navigation() {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive ? `${css.link} ${css.active}` : css.link
+              isActive
+                ? `${css.link} ${css.active} ${css.home}`
+                : `${css.link} ${css.home}`
             }
           >
             Home
@@ -18,7 +20,9 @@ export default function Navigation() {
           <NavLink
             to="/catalog"
             className={({ isActive }) =>
-              isActive ? `${css.link} ${css.active}` : css.link
+              isActive
+                ? `${css.link} ${css.active} ${css.catalog}`
+                : `${css.link} ${css.catalog}`
             }
           >
             Catalog

@@ -6,7 +6,6 @@
   right: 0;
   top: 0;
   bottom: 696px;
-  /* Auto layout */
 }
 
 .logo {
@@ -39,10 +38,28 @@
 
 .links {
   padding-left: 450px;
-  color: rgb(216, 67, 67);
   font-family: Inter;
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0%;
+  display: flex;
+  gap: 32px;
+}
+
+.link {
+  color: rgb(145, 10, 10);
+  text-decoration: none;
+}
+
+.home {
+  color: rgb(228, 72, 72);
+}
+
+.catalog {
+  color: rgb(16, 24, 40);
+}
+
+.active {
+  font-weight: bold;
 }

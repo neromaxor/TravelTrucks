@@ -21,11 +21,7 @@ const campersSlice = createSlice({
     error: null,
     page: 1, // Додаємо початковий номер сторінки
   },
-  reducers: {
-    setPage: (state, action) => {
-      state.page = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchCampers.pending, (state) => {
@@ -33,8 +29,9 @@ const campersSlice = createSlice({
       })
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = Array.isArray(action.payload) ? action.payload : [];
+        state.campers = [...state.campers, ...action.payload];
       })
+
       .addCase(fetchCampers.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
@@ -42,5 +39,4 @@ const campersSlice = createSlice({
   },
 });
 
-export const { setPage } = campersSlice.actions;
 export default campersSlice.reducer;

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCampers } from "../../redux/operations";
 import CampersCard from "../CampersCard/CampersCard";
@@ -7,47 +7,35 @@ import {
   selectCampersStatus,
   selectCampersError,
 } from "../../redux/selector";
-import { setPage } from "../../redux/slice";
 
-export default function CamptrsList() {
+export default function CapmersList() {
+  const [currentPage, setCurrentPage] = useState(1);
+
   const dispatch = useDispatch();
-  const campersList = useSelector(selectCampersList);
   const status = useSelector(selectCampersStatus);
   const error = useSelector(selectCampersError);
-  const page = useSelector((state) => state.campers.page);
+  const campers = useSelector(selectCampersList);
 
   useEffect(() => {
-    dispatch(fetchCampers({ page, limit: 4 }));
-  }, [dispatch, page]);
+    dispatch(fetchCampers({ page: currentPage }));
+  }, [dispatch, currentPage]);
 
   const handleLoadMore = () => {
-    dispatch(setPage(page + 1)); // Оновлюємо сторінку в Redux
+    setCurrentPage((prevPage) => prevPage + 1);
   };
-
-  if (status === "loading") {
-    return <p>Loading campers...</p>;
-  }
-
-  if (status === "failed") {
-    return <p>Error: {error}</p>;
-  }
 
   return (
     <div>
-      <div className="campers-list">
-        <ul>
-          {Array.isArray(campersList) && campersList.length > 0 ? (
-            campersList.map((camper) => (
-              <li key={camper.id}>
-                <CampersCard camper={camper} />
-              </li>
-            ))
-          ) : (
-            <p>No campers available.</p>
-          )}
-        </ul>
-        <button onClick={handleLoadMore}>Load More</button>
-      </div>
+      <ul>
+        {campers.map((camper, index) => (
+          <li key={index}>
+            <CampersCard camper={camper} />
+          </li>
+        ))}
+      </ul>
+      <button onClick={handleLoadMore}>Load More</button>
+      {status && <p>Loading...</p>}
+      {error && <p>Error message: {error}</p>}
     </div>
   );
 }

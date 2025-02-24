@@ -7,6 +7,8 @@ import {
   selectCampersStatus,
   selectCampersError,
 } from "../../redux/selector";
+import css from "./../Campers/CampersList.module.css";
+import  Filters from "../Filters/Filters"
 
 export default function CapmersList() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,17 +27,21 @@ export default function CapmersList() {
   };
 
   return (
-    <div>
-      <ul>
+    <div className={css.container}>
+      <div className={css.container_cards}>
         {campers.map((camper, index) => (
-          <li key={index}>
+          <div key={index} className={css.card}>
             <CampersCard camper={camper} />
-          </li>
+          </div>
         ))}
-      </ul>
-      <button onClick={handleLoadMore}>Load More</button>
-      {status && <p>Loading...</p>}
-      {error && <p>Error message: {error}</p>}
+      </div>
+      <div className={css.button_container}>
+        <button onClick={handleLoadMore} className={css.load_more_button}>
+          Load More
+        </button>
+      </div>
+      {status && <p className={css.loading_text}>Loading...</p>}
+      {error && <p className={css.error_text}>Error message: {error}</p>}
     </div>
   );
 }

@@ -1,0 +1,88 @@
+.container_campers_card {
+  display: flex;
+  flex-direction: row; /* Зміщаємо елементи в рядок */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 888px; /* Встановлюємо нову довжину картки */
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 16px;
+}
+
+.image_container {
+  flex-shrink: 0; /* Забезпечуємо, щоб зображення не стискалось */
+  width: 40%; /* Ширина для зображення */
+  margin-right: 16px; /* Відступ між зображенням та інформацією */
+}
+
+.image_container img {
+  width: 292px; /* Встановлюємо ширину картинки */
+  height: 400px; /* Встановлюємо висоту картинки */
+  border-radius: 10px; /* Заокруглюємо кути картинки */
+  object-fit: cover; /* Забезпечуємо правильне обрізання картинки для заповнення області */
+}
+
+.favorite-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.description_container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 60%; /* Відповідно до ширини картки */
+}
+
+.description_container h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.description_container p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.properties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.properties p {
+  background-color: #f1f1f1;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.properties p:last-child {
+  background-color: #e6f7ff;
+  border-color: #80d0ff;
+}
+
+button {
+  align-self: flex-start;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

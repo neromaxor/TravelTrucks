@@ -10,6 +10,7 @@ import {
 import css from "./../Campers/CampersList.module.css";
 import  Filters from "../Filters/Filters"
 
+
 export default function CapmersList() {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -27,12 +28,16 @@ export default function CapmersList() {
   };
 
   return (
+    // Додаємо ком
     <div className={css.container}>
+     
       <div className={css.container_cards}>
+      <Filters />
         {campers.map((camper, index) => (
+          <div className={css.card_top}>
           <div key={index} className={css.card}>
             <CampersCard camper={camper} />
-          </div>
+          </div></div>
         ))}
       </div>
       <div className={css.button_container}>

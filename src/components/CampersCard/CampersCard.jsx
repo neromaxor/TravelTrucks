@@ -1,11 +1,24 @@
 import css from "./CampersCard.module.css";
 import PropTypes from "prop-types";
-import { selectFilters } from "../../redux/selector";
+import { selectFiltersCampers } from "../../redux/selector";
 import { useSelector } from "react-redux";
 import sprite from "../../assets/icons/sprite.svg";
 
 export default function CampersCard({ camper }) {
-  const characteristics = useSelector(selectFilters);
+  const characteristics = useSelector(selectFiltersCampers);
+
+  // Масив характеристик для перевірки
+  const camperCharacteristics = [
+    { key: "AC", label: "AC" },
+    { key: "bathroom", label: "Bathroom" },
+    { key: "kitchen", label: "Kitchen" },
+    { key: "TV", label: "TV" },
+    { key: "radio", label: "Radio" },
+    { key: "refrigerator", label: "Refrigerator" },
+    { key: "microwave", label: "Microwave" },
+    { key: "gas", label: "Gas" },
+    { key: "water", label: "Water" },
+  ];
 
   return (
     <div className={css.container_campers_card}>
@@ -24,8 +37,8 @@ export default function CampersCard({ camper }) {
         <p>
           {camper.rating} ({camper.reviews.length} reviews)
         </p>
-        <p>{camper.location}</p>
-        <p>{camper.description}</p>
+        <p>{camper.location || "Location not specified"}</p>
+        <p>{camper.description || "No description available"}</p>
         <div className={css.properties}>
           <p>
             {camper.transmission.charAt(0).toUpperCase() +
@@ -34,17 +47,10 @@ export default function CampersCard({ camper }) {
           <p>
             {camper.engine.charAt(0).toUpperCase() + camper.engine.slice(1)}
           </p>
-          {camper.AC === characteristics.AC && <p>AC</p>}
-          {camper.bathroom === characteristics.bathroom && <p>Bathroom</p>}
-          {camper.kitchen === characteristics.kitchen && <p>Kitchen</p>}
-          {camper.TV === characteristics.TV && <p>TV</p>}
-          {camper.radio === characteristics.radio && <p>Radio</p>}
-          {camper.refrigerator === characteristics.refrigerator && (
-            <p>Refrigerator</p>
+          {/* Відображення характеристик на основі значень з Redux */}
+          {camperCharacteristics.map(({ key, label }) =>
+            camper[key] === characteristics[key] ? <p key={key}>{label}</p> : null
           )}
-          {camper.microwave === characteristics.microwave && <p>Microwave</p>}
-          {camper.gas === characteristics.gas && <p>Gas</p>}
-          {camper.water === characteristics.water && <p>Water</p>}
         </div>
         <button>Show More</button>
       </div>

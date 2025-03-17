@@ -19,3 +19,23 @@ export const fetchCampers = createAsyncThunk(
     }
   }
 );
+
+export const fetchFilters = createAsyncThunk(
+  "campers/fetchFilteredCampers",
+  async (filters, thunkApi) => {
+    try {
+      const params = new URLSearchParams(filters).toString();
+      const response = await api.get(`/campers?${params}`);
+      console.log(response.data.items);
+      if (response.status === 404) {
+        return thunkApi.rejectWithValue("No campers found for this search.");
+      }
+      return response.data.items;
+    } catch (error) {
+      return thunkApi.rejectWithValue(error.message);
+    }
+  }
+);
+
+
+

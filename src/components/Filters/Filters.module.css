@@ -1,7 +1,7 @@
 .container {
   padding: 20px;
-  width: 300px;
-  height: 400px;
+  position: fixed
+  
 }
 
 .filter {
@@ -9,17 +9,21 @@
   flex-direction: column;
   gap: 20px;
   position: relative;
-  top: 100px;
+  top: 20px;
   width: 300px;
-  height: 400px;
+  height: auto;
+  margin-top: 40px;
+ 
 }
 
 .inputLocation {
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
   transition: border-color 0.3s;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .inputLocation:focus {
@@ -33,8 +37,15 @@
   color: #333;
 }
 
-/* Групування елементів у рядок, щоб вони не випадали за контейнер */
+/* Контейнер для груп (Vehicle equipment і Vehicle type) */
 .filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Контейнер для елементів фільтрів */
+.filterItems {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -43,47 +54,51 @@
 
 /* Оновлені стилі для кнопок-фільтрів */
 .filterItem {
-  
   border: 2px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 17px;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   text-align: center;
-  width: 70px;
-  
+  min-width: 130px; /* Збільшено для довшого тексту */
+  height: 60px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap; /* Текст не переноситься */
+  /* Прибрано overflow: hidden і text-overflow: ellipsis */
 }
 
 /* Ефект при наведенні */
 .filterItem:hover {
-  background-color: #f0f0f0;
+  background-color: #bcb6b6;
 }
 
 /* Коли натискається фільтр */
 .filterItem:active,
 .filterItem.selected {
-  background-color: red;
-  color: white;
-  border-color: red;
+  background-color: rgb(214, 3, 95);
+  color: rgb(255, 251, 251);
+  border-color: rgb(6, 5, 1);
 }
 
 /* Стилі кнопки пошуку */
 .searchButton {
   padding: 12px 20px;
-  background-color: #007bff;
+  background-color: #9000ff;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 15px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-left: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .searchButton:hover {
-  background-color: #0056b3;
-}
-
-.icon {
-  width: 20px;
-  height: 20px;
+  background-color: #6200b3;
 }

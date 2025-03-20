@@ -1,35 +1,55 @@
 import css from "./Filters.module.css";
 import sprite from "../../assets/icons/sprite.svg";
 import { useSearchParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchFilters } from "../../redux/operations";
-import { useState } from "react";
-import { useSelector } from "react-redux";
 import { selectFiltersCampers } from "../../redux/selector";
-import { selectFilters } from "../../redux/slice";
+import { setFilters, toggleFilter, clearFilters } from "../../redux/slice";
+import { useState } from "react";
 
 export default function Filters() {
-  const dispatch = useDispatch(selectFilters);
+  const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
-  const [selectedFilter, setSelectedFilter] = useState(null);
-  const filters = useSelector(selectFiltersCampers);
-  const { location } = filters;
+  const { location: initialLocation, selectedFilters: initialFilters } = useSelector(selectFiltersCampers);
 
-  const toggelefilter = (key, value) => {
-    dispatch(selectFilters({ key, value }));
+  const [localLocation, setLocalLocation] = useState(initialLocation || "");
+  const [localFilters, setLocalFilters] = useState(initialFilters || []);
+
+  const handleLocationChange = (e) => {
+    setLocalLocation(e.target.value);
+  };
+
+  const handleFilterToggle = (filter) => {
+    setLocalFilters((prevFilters) => {
+      const index = prevFilters.indexOf(filter);
+      if (index === -1) {
+        return [...prevFilters, filter];
+      } else {
+        return prevFilters.filter((f) => f !== filter);
+      }
+    });
   };
 
   const handleSearch = () => {
-    // Оновлюємо параметри URL
-    setSearchParams({ location });
+    // Очищаємо попередні фільтри в Redux
+    dispatch(clearFilters());
 
-    // Викликаємо action для фільтрації
-    dispatch(fetchFilters({ location }));
-  };
+    // Застосовуємо нові фільтри
+    dispatch(setFilters({ key: "location", value: localLocation }));
+    localFilters.forEach((filter) => {
+      dispatch(toggleFilter(filter));
+    });
 
-  const handleFilterClick = (filter) => {
-    setSelectedFilter(filter);
-    dispatch(fetchFilters({ filter }));
+    const params = { location: localLocation };
+    if (localFilters.length > 0) {
+      params.filters = localFilters.join(",");
+    }
+    setSearchParams(params);
+    dispatch(fetchFilters({ location: localLocation, selectedFilters: localFilters }));
+
+    // Очищаємо локальний стан після пошуку
+    setLocalFilters([]);
+    setLocalLocation("");
   };
 
   return (
@@ -38,8 +58,8 @@ export default function Filters() {
         <input
           type="text"
           placeholder="Ukraine Kyiv"
-          value={location}
-          onChange={(e) => toggelefilter("location", e.target.value)}
+          value={localLocation}
+          onChange={handleLocationChange}
           className={css.inputLocation}
         />
 
@@ -50,8 +70,10 @@ export default function Filters() {
             {["AC", "Automatic", "Kitchen", "TV", "Bathroom"].map((filter) => (
               <div
                 key={filter}
-                className={`${css.filterItem} ${selectedFilter === filter ? css.selected : ""}`}
-                onClick={() => handleFilterClick(filter)}
+                className={`${css.filterItem} ${
+                  localFilters.includes(filter.toLowerCase()) ? css.selected : ""
+                }`}
+                onClick={() => handleFilterToggle(filter.toLowerCase())}
               >
                 {filter}
               </div>
@@ -63,13 +85,15 @@ export default function Filters() {
         <div className={css.filterGroup}>
           <h2 className={css.sectionTitle}>Vehicle type</h2>
           <div className={css.filterItems}>
-            {["VAN", "Fully Integrated", "Alcove"].map((filter) => (
+            {["van", "fullyIntegrated", "alcove"].map((filter) => (
               <div
                 key={filter}
-                className={`${css.filterItem} ${selectedFilter === filter ? css.selected : ""}`}
-                onClick={() => handleFilterClick(filter)}
+                className={`${css.filterItem} ${
+                  localFilters.includes(filter) ? css.selected : ""
+                }`}
+                onClick={() => handleFilterToggle(filter)}
               >
-                {filter}
+                {filter === "van" ? "Van" : filter === "fullyIntegrated" ? "Fully Integrated" : "Alcove"}
               </div>
             ))}
           </div>

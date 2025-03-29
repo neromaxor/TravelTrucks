@@ -25,7 +25,7 @@ export const fetchFilters = createAsyncThunk(
   async ({ location, selectedFilters }, thunkApi) => {
     try {
       // Завантажуємо всі кемпери (без пагінації)
-      const response = await api.get("/campers");
+      const response = await api.get("/campers")
       const campers = response.data.items || response.data;
 
       const filteredCampers = campers.filter((camper) => {
@@ -43,7 +43,7 @@ export const fetchFilters = createAsyncThunk(
 
         // Розділяємо фільтри на form і equipment
         const formFilters = selectedFilters.filter((filter) =>
-          ["van", "fullyintegrated", "alcove"].includes(filter.toLowerCase())
+          ["van", "fullyIntegrated", "alcove"].includes(filter.toLowerCase())
         );
         const equipmentFilters = selectedFilters.filter((filter) =>
           ["ac", "automatic", "kitchen", "tv", "bathroom"].includes(filter.toLowerCase())

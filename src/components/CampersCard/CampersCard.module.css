@@ -1,27 +1,32 @@
 .container_campers_card {
   display: flex;
-  flex-direction: row; /* Зміщаємо елементи в рядок */
+  flex-direction: row;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
-  max-width: 888px; /* Встановлюємо нову довжину картки */
+  max-width: 888px;
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin: 20px;
   padding: 16px;
+  margin-top: 100px;
+  margin-left: 400px;
+  gap: 30px;
 }
 
 .image_container {
-  flex-shrink: 0; /* Забезпечуємо, щоб зображення не стискалось */
-  width: 40%; /* Ширина для зображення */
-  margin-right: 16px; /* Відступ між зображенням та інформацією */
+  flex-shrink: 0;
+  width: 40%;
+  margin-right: 16px;
+ 
+ 
 }
 
 .image_container img {
-  width: 292px; /* Встановлюємо ширину картинки */
-  height: 400px; /* Встановлюємо висоту картинки */
-  border-radius: 10px; /* Заокруглюємо кути картинки */
-  object-fit: cover; /* Забезпечуємо правильне обрізання картинки для заповнення області */
+  width: 292px;
+  height: 400px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .favorite-icon {
@@ -35,7 +40,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 60%; /* Відповідно до ширини картки */
+  width: 60%;
 }
 
 .description_container h2 {
@@ -85,4 +90,122 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+/* Адаптація для лаптопів (1280px і нижче) */
+@media (max-width: 1280px) {
+  .container_campers_card {
+    max-width: 700px; /* Зменшуємо ширину картки */
+    margin: 15px; /* Зменшуємо відступи */
+    padding: 12px;
+  }
+
+  .image_container {
+    width: 35%; /* Зменшуємо ширину зображення */
+    margin-right: 12px;
+  }
+
+  .image_container img {
+    width: 100%; /* Зображення займає всю ширину контейнера */
+    height: 300px; /* Зменшуємо висоту */
+  }
+
+  .description_container {
+    width: 65%;
+  }
+
+  .description_container h2 {
+    font-size: 16px; /* Зменшуємо розмір заголовка */
+  }
+
+  .description_container p {
+    font-size: 13px; /* Зменшуємо розмір тексту */
+  }
+
+  .properties p {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Адаптація для планшетів (768px–1024px) */
+@media (max-width: 1024px) {
+  .container_campers_card {
+    flex-direction: column; /* Змінюємо на вертикальний макет */
+    max-width: 500px; /* Ще більше зменшуємо ширину */
+    margin: 10px auto; /* Центруємо картку */
+    padding: 10px;
+  
+  }
+
+  
+  .image_container {
+    width: 100%; /* Зображення займає всю ширину */
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+
+  .image_container img {
+    width: 100%;
+    height: 250px; /* Зменшуємо висоту для планшетів */
+  }
+
+  .description_container {
+    width: 100%; /* Опис займає всю ширину */
+  }
+
+  .description_container h2 {
+    font-size: 16px;
+  }
+
+  .description_container p {
+    font-size: 13px;
+  }
+
+  .properties p {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  button {
+    align-self: center; /* Центруємо кнопку */
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Адаптація для малих планшетів і великих телефонів (менше 768px) */
+@media (max-width: 768px) {
+  .container_campers_card {
+    max-width: 90%; /* Зменшуємо ширину для малих екранів */
+    margin: 10px auto;
+    padding: 8px;
+  }
+
+  .image_container img {
+    height: 200px; /* Ще більше зменшуємо висоту зображення */
+  }
+
+  .description_container h2 {
+    font-size: 14px;
+  }
+
+  .description_container p {
+    font-size: 12px;
+  }
+
+  .properties p {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+
+  button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
 }

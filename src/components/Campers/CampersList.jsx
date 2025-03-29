@@ -22,10 +22,8 @@ export default function CampersList() {
 
   useEffect(() => {
     if (isFiltered) {
-      // Якщо фільтри застосовані, використовуємо fetchFilters
       dispatch(fetchFilters({ location, selectedFilters, page: currentPage }));
     } else {
-      // Інакше завантажуємо всі кемпери
       dispatch(fetchCampers({ page: currentPage }));
     }
   }, [dispatch, currentPage, isFiltered, location, selectedFilters]);
@@ -36,8 +34,8 @@ export default function CampersList() {
 
   return (
     <div className={css.container}>
+       <Filters /> {/* Тут застосовується новий фон */}
       <div className={css.container_cards}>
-        <Filters />
         {campers && campers.length > 0 ? (
           campers.map((camper) => (
             <div className={css.card_top} key={camper.id}>

@@ -13,19 +13,67 @@
     
   }
 
-
+ .toggleButton{
+  padding: 10px 20px;
+  background-color: #0b7edb;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 80px;
+  
+  
  }
- @media (min-width: 768px) {
+ }
+
+
+ 
+@media (min-width: 769px) {
+  .toggleButton {
+    display: none;
+  }
+  .toggleButton{
+    padding: 10px 20px;
+    background-color: #0b7edb;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 300px;
+    
+    
+   }
+}
+ @media (min-width: 768px) and (max-width: 769px) {
   .container{
     padding: 20px;
     position: fixed;
-    margin-top: 50px;
-    width: 329px
-  }
-  
+    margin-top: 30px;
+    margin-left: 69px;
+    width: 600px;
+    background-color: white;
+    border-radius: 30px;
+   
+  } 
   .searchButton{
     margin-top:10px;
   }
+  .toggleButton{
+    padding: 10px 20px;
+    background-color: #0b7edb;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 300px;
+    
+    
+   }
+   
+
  }
 @media (min-width: 1024px) {
   .filter {
@@ -54,6 +102,10 @@
     height: auto;
     margin-top: 40px;
     margin-right: 1000px;
+  }
+  .container{
+    margin-top: 6px;
+
   }
 }
 .inputLocation {

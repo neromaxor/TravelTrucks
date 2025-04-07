@@ -24,7 +24,7 @@
 
 .image_container img {
   width: 292px;
-  height: 400px;
+  height: 511px;
   border-radius: 10px;
   object-fit: cover;
 }
@@ -209,3 +209,16 @@ button:hover {
     font-size: 13px;
   }
 }
+
+@media(min-width: 320px){
+
+
+.container_campers_card{
+  width: 320px;
+  margin-right: 10px;
+
+}
+}
+
+
+

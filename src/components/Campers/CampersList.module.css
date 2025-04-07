@@ -56,6 +56,16 @@
   margin: 20px 0;
 }
 
+/* @madia (max-width: 320px){
+
+  .card_top{
+    margin-left: 360px;
+    width: 250px;
+    margin-top: 60px;
+   
+  }
+  
+} */
 /* Адаптація для лаптопів (1280px і нижче) */
 @media (max-width: 1280px) {
   .container {
@@ -112,12 +122,14 @@
 
   .card_top{
     margin-left: 360px;
-    width: 400px;
+    width: 511px;
     margin-top: 60px;
    
   }
   .container_cards {
     gap: 8px;
+    margin-top: -50px;
+    margin-right: 340px;
   }
 
   .load_more_button {
@@ -130,3 +142,4 @@
     font-size: 12px;
   }
 }
+

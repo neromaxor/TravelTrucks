@@ -3,7 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+@media (max-width: 768px) {
+  .container {
+    width: 769px;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 320px) {
+  .container {
+    width: 320px;
+    margin: 0 auto;
+  }
+}
 .container {
   background-image: url("/public/Images/Screenpage-min.jpg");
   background-size: cover;
@@ -16,7 +27,7 @@
   justify-content: center;
 }
 
-@media (max-width: 1440px) {
+@media (min-width: 1440px) {
   .container {
     width: 1440px;
     margin: 0 auto;

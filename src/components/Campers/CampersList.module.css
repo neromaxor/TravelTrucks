@@ -56,18 +56,8 @@
   margin: 20px 0;
 }
 
-/* @madia (max-width: 320px){
-
-  .card_top{
-    margin-left: 360px;
-    width: 250px;
-    margin-top: 60px;
-   
-  }
-  
-} */
-/* Адаптація для лаптопів (1280px і нижче) */
-@media (max-width: 1280px) {
+/* Адаптація для лаптопів (1025px–1280px) */
+@media (min-width: 1025px) and (max-width: 1280px) {
   .container {
     padding: 15px;
   }
@@ -88,7 +78,7 @@
 }
 
 /* Адаптація для планшетів (768px–1024px) */
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .container {
     padding: 10px;
   }
@@ -97,12 +87,11 @@
     gap: 10px;
   }
 
-  .card_top{
-    margin-left: 400px;
+  .card_top {
     width: 500px;
     margin-top: 70px;
-   
   }
+
   .load_more_button {
     padding: 8px 16px;
     font-size: 14px;
@@ -114,22 +103,21 @@
   }
 }
 
-/* Адаптація для малих планшетів і великих телефонів (менше 768px) */
-@media (max-width: 768px) {
+/* Адаптація для малих планшетів і великих телефонів (320px–767px) */
+@media (min-width: 321px) and (max-width: 767px) {
   .container {
     padding: 8px;
   }
 
-  .card_top{
-    margin-left: 360px;
-    width: 511px;
-    margin-top: 60px;
-   
-  }
   .container_cards {
     gap: 8px;
-    margin-top: -50px;
-    margin-right: 340px;
+    margin-top: 0;
+    margin-right: 0;
+  }
+
+  .card_top {
+    width: 100%;
+    margin: 60px auto 0;
   }
 
   .load_more_button {
@@ -143,3 +131,30 @@
   }
 }
 
+/* Адаптація для дуже малих екранів (320px і нижче) */
+@media (max-width: 320px) {
+  .container {
+    padding: 8px;
+  }
+
+  .container_cards {
+    gap: 8px;
+    margin-top: 0;
+    margin-right: 0;
+  }
+
+  .card_top {
+    width: 100%;
+    margin: 60px auto 0;
+  }
+
+  .load_more_button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .loading_text,
+  .error_text {
+    font-size: 12px;
+  }
+}

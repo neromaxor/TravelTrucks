@@ -5,6 +5,7 @@ export default function Navigation() {
   return (
     <nav className={css.nav}>
       <div className={css.container}>
+       
         <span className={css.logo}>Travel</span>
         <span className={css.logoTrucks}>Trucks</span>
         <div className={css.links}>

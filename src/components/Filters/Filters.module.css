@@ -7,10 +7,11 @@
 
  @media(min-width: 320px){
   .container {
-   
-    width: 316px;
-    margin-top: 60px;
-    
+    width: 320px;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 30px;
+    margin-left: -8px;
   }
 
  .toggleButton{
@@ -24,6 +25,10 @@
   margin-top: 80px;
   margin-left: 80px;
   
+ }
+ .filter{
+   
+   margin-left: 10px;
  }
  }
 
@@ -87,6 +92,12 @@
     margin-top: 40px;
     margin-right: 650px;
   }
+  .container{
+    margin-top: 30px;
+    background: transparent;
+    width: 365px;
+    height: 660px;
+  }
 }
 
 
@@ -104,8 +115,8 @@
     margin-right: 1000px;
   }
   .container{
-    margin-top: 6px;
-
+    margin-top: 10px;
+    background: transparent;
   }
 }
 .inputLocation {

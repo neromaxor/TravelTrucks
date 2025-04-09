@@ -14,7 +14,7 @@
   line-height: 20px;
   letter-spacing: 0%;
   text-align: center;
-  margin-left: -63px;
+  margin-left: -50px;
 }
 
 .container {
@@ -48,6 +48,7 @@
   line-height: 20px;
   letter-spacing: 0%;
   text-align: center;
+  margin-right: 30px;
 }
 
 .links {
@@ -78,3 +79,28 @@
   font-weight: bold;
 }
 
+@media (min-width: 375px) and (max-width: 425px)
+{
+  .logoTrucks {
+    color: #475467;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: center;
+    margin-right: 40px;
+  }
+
+
+  .logo {
+    color: rgb(16, 24, 40);
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: center;
+    margin-left: -50px;
+  }
+}

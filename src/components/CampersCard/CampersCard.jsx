@@ -3,9 +3,16 @@ import PropTypes from "prop-types";
 import { selectFiltersCampers } from "../../redux/selector";
 import { useSelector } from "react-redux";
 import sprite from "../../assets/icons/sprite.svg";
+import CamperDetails from "./../../pages/CamperDetails";
+import { useNavigate } from "react-router-dom";
+
 
 export default function CampersCard({ camper }) {
   const characteristics = useSelector(selectFiltersCampers);
+  const navigate = useNavigate()
+  const handleDetalisClick =( ) =>{
+    navigate("/details")
+  }
 
   // Масив характеристик для перевірки
   const camperCharacteristics = [
@@ -48,11 +55,15 @@ export default function CampersCard({ camper }) {
             {camper.engine.charAt(0).toUpperCase() + camper.engine.slice(1)}
           </p>
           {/* Відображення характеристик на основі значень з Redux */}
-          {camperCharacteristics.map(({ key, label }) =>
+          {/* {camperCharacteristics.map(({ key, label }) =>
             camper[key] === characteristics[key] ? <p key={key}>{label}</p> : null
+          )} */}
+          {/* Відображення характеристик на основі значень з camper */}
+           {camperCharacteristics.map(({ key, label }) =>
+            camper[key] ? <p key={key}>{label}</p> : null
           )}
         </div>
-        <button>Show More</button>
+        <button  className="css.details" onClick={handleDetalisClick}>Show More</button>
       </div>
     </div>
   );
